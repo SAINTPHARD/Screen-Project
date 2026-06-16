@@ -74,7 +74,7 @@ public class DemoscreenprojectApplication implements CommandLineRunner {
     }
 
     /**
-     * Realiza a busca dos dados gerais da série fixa (Gilmore Girls).
+     * Realiza a busca dos dados gerais da série fixa
      */
     private DadosSerie buscarDadosSerie() {
         // Envia a requisição HTTP e armazena o JSON bruto recebido
@@ -108,7 +108,7 @@ public class DemoscreenprojectApplication implements CommandLineRunner {
         System.out.println("\n--- LISTANDO TEMPORADAS ---");
         List<DadosTemporada> temporadas = new ArrayList<>();
 
-        // O loop roda de 1 até o total de temporadas da série
+        // O loop roda de 1 até o total de temporadas da série para alimentar a lista
         for (int i = 1; i <= totalTemporadas; i++) {
             // Concatena o número do índice 'i' dinamicamente no parâmetro &season=
             String urlTemporada = URL_BASE + "&season=" + i + API_KEY;
@@ -119,7 +119,10 @@ public class DemoscreenprojectApplication implements CommandLineRunner {
             temporadas.add(dadosTemporada);
         }
 
-        // Imprime cada temporada da lista de forma limpa no console
-        temporadas.forEach(System.out::println);
+        System.out.println("\n--- TÍTULOS DOS EPISÓDIOS EXIBIDOS VIA FOREACH ANINHADO ---");
+        // Aplicação dos Lambdas aninhados para exibir os títulos de forma limpa
+        temporadas.forEach(t ->
+                t.episodios().forEach(e -> System.out.println(e.titulo()))
+        );
     }
 }

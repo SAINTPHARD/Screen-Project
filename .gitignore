@@ -1,0 +1,20 @@
+
+# Arquivos de compilação do Maven
+target/
+*.egg-info
+
+# Configurações locais de IDEs (IntelliJ / Eclipse / STS)
+.idea/
+*.iml
+.settings/
+.project
+.classpath
+.factorypath
+
+# Sistema Operacional e Logs
+DS_Store
+Thumbs.db
+*.log
+
+# Arquivos de propriedades que podem conter senhas/chaves de API no futuro
+demoscreenproject/src/main/resources/application-local.properties
